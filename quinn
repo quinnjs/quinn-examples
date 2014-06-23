@@ -1,0 +1,5 @@
+#!/bin/bash
+export PATH="./node_modules/.bin:$PATH"
+export NODE_ENV=${NODE_ENV:-development}
+
+exec node --harmony node_modules/.bin/quinn "$@"

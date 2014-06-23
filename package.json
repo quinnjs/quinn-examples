@@ -1,0 +1,33 @@
+{
+  "name": "quinn-examples",
+  "version": "0.0.0",
+  "description": "Examples of an app written using quinn",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quinnjs/quinn-examples.git"
+  },
+  "author": "Jan Krems <jan.krems@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quinnjs/quinn-examples/issues"
+  },
+  "homepage": "https://github.com/quinnjs/quinn-examples",
+  "dependencies": {
+    "bluebird": "^2.1.3",
+    "envify": "^1.2.1",
+    "lodash": "^2.4.1",
+    "node-jsx": "^0.10.0",
+    "quinn": "^2.1.0",
+    "quinn-render": "^1.0.0",
+    "quinn-respond": "^1.0.1",
+    "quinn-router": "^1.0.1",
+    "react": "^0.10.0"
+  },
+  "devDependencies": {
+    "pinky-test": "^1.1.0"
+  }
+}
