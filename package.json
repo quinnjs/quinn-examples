@@ -28,6 +28,8 @@
     "react": "^0.10.0"
   },
   "devDependencies": {
-    "pinky-test": "^1.1.0"
+    "bugger-v8-client": "git+https://github.com/buggerjs/bugger-v8-client",
+    "pinky-test": "^1.1.0",
+    "watch": "^0.10.0"
   }
 }
