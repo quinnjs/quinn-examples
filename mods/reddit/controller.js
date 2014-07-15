@@ -20,6 +20,8 @@ exports.subreddit = async(function*(req, params) {
   try {
     about = yield reddit.about(subId);
   } catch (err) {
+    top.cancel();
+
     // The reddit API redirects to search when the reddit does not exist
     if (err.statusCode === 302) {
       return respond('Not found: ' + subId).status(404);

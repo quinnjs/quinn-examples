@@ -27,7 +27,11 @@ function requestLogger(req, params, inner) {
 
   resP.then(
     function(res) {
-      console.log('[%s] %s %s', res.statusCode, req.method, req.url);
+      if (res === undefined) {
+        console.log('[%s] %s %s', 404, req.method, req.url);
+      } else {
+        console.log('[%s] %s %s', res.statusCode, req.method, req.url);
+      }
     },
     function(err) {
       console.log('[ERR] %s %s\n  %s', req.method, req.url, err.message);
@@ -37,9 +41,19 @@ function requestLogger(req, params, inner) {
   return resP;
 };
 
+var mods = [
+  'basic-auth',
+  'reddit'
+].map(function(modName) {
+  return require('./mods/' + modName);
+});
+
+var routes = [
+  require('./conf/routes')
+]
+.concat(mods.map(function(mod) { return mod.routes; }))
+.map(route);
+
 module.exports = use(requestLogger)(
-  firstHandler(
-    route(require('./conf/routes')),
-    route(require('./mods/reddit/routes'))
-  )
+  firstHandler.apply(null, routes)
 );

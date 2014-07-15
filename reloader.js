@@ -106,7 +106,7 @@ watch.watchTree(process.cwd(), {
           if (err) {
             console.log(err, res);
           } else {
-            console.log('Updated %s', filename);
+            console.log('Updated %s', filename, res);
           }
         });
       });

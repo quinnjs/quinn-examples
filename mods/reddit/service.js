@@ -5,6 +5,8 @@ var Http = require('http');
 var Bluebird = require('bluebird');
 
 function readJSON(pathname, qs) {
+  var req;
+
   return new Bluebird(function(resolve, reject) {
     var path = qs === undefined ? pathname :
       pathname + QS.stringify(qs);
@@ -14,9 +16,9 @@ function readJSON(pathname, qs) {
       path: path
     };
 
-    Http.request(httpOpts, function(response) {
+    req = Http.request(httpOpts, function(response) {
       if (response.statusCode >= 300) {
-        var err = new Error('Unexpected status code: ' + response.statusCode);
+        var err = new Error('Unexpected status code: ' + response.statusCode + ' (' + path + ')');
         err.statusCode = response.statusCode;
         err.headers = response.headers;
         return reject(err);
@@ -39,6 +41,11 @@ function readJSON(pathname, qs) {
     })
     .on('error', reject)
     .end();
+  })
+  .cancellable()
+  .catch(Bluebird.CancellationError, function(e) {
+    try { req.abort(); } catch (err) {}
+    return Bluebird.reject(e);
   });
 }
 
