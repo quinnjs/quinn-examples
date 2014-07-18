@@ -8,20 +8,9 @@ require('node-jsx').install({
 var route = require('quinn-router').route;
 var firstHandler = require('quinn').firstHandler;
 
-var runRequestHandler = require('quinn').runRequestHandler;
-function use(outer) {
-  return function (inner) {
-    function normalizedInner(req, params) {
-      return runRequestHandler(inner, req, params);
-    }
+var middleware = require('./lib/middleware');
 
-    return function(req, params) {
-      return outer(req, params, normalizedInner);
-    }
-  }
-}
-
-function requestLogger(req, params, inner) {
+var requestLogger = middleware(function requestLogger(req, params, inner) {
   console.log('[REQ] %s %s', req.method, req.url);
   var resP = inner(req, params);
 
@@ -39,7 +28,7 @@ function requestLogger(req, params, inner) {
   );
 
   return resP;
-};
+});
 
 var mods = [
   'basic-auth',
@@ -54,6 +43,6 @@ var routes = [
 .concat(mods.map(function(mod) { return mod.routes; }))
 .map(route);
 
-module.exports = use(requestLogger)(
+module.exports = requestLogger(
   firstHandler.apply(null, routes)
 );
