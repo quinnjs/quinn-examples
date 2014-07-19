@@ -6,7 +6,7 @@ var assert = require('assertive-as-promised');
 
 var quickRequest = require('./quick-req');
 
-xdescribe('reddit', function() {
+describe('reddit', function() {
   describe('/r/javascript', function() {
     before(function() {
       return this.parsedBody = quickRequest('/r/javascript')
@@ -18,7 +18,7 @@ xdescribe('reddit', function() {
     });
 
     it('has a script heading', function() {
-      return assert.include('<h5>JavaScript</h5>', this.parsedBody)
+      return assert.include('<h5>JavaScript</h5>', this.parsedBody);
     });
   });
 });

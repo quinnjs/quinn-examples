@@ -4,7 +4,7 @@ const Bluebird = require('bluebird');
 const async = Bluebird.coroutine;
 
 const respond = require('quinn-respond');
-const render = require('quinn-render');
+const render = require('../../lib/render');
 
 const reddit = require('./service');
 const SubIndexPage = require('./view/sub-index');
@@ -30,13 +30,14 @@ exports.subreddit = async(function*(req, params) {
   }
 
   // `top` will be resolved by render automatically
-  return render(SubIndexPage, {
+  return render(SubIndexPage({
     subId: subId,
     about: about,
-    submissions: top
-  }, {
+    submissions: top,
     // Yes, I'm *that* lazy
     styles: '//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css',
     pageTitle: '/r/' + subId + ' (top)'
+  }), {
+    staticMarkup: true
   });
 });

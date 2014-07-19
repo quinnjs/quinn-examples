@@ -25,7 +25,8 @@
     "quinn-render": "^1.0.0",
     "quinn-respond": "^1.0.1",
     "quinn-router": "^1.0.1",
-    "react": "^0.11.0"
+    "react": "^0.11.0",
+    "resolve-deep": "^1.0.1"
   },
   "devDependencies": {
     "assertive-as-promised": "^0.1.0",

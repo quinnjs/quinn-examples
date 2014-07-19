@@ -48,13 +48,21 @@ let SubIndexPage = React.createClass({
       return child.data;
     });
 
-    return <div className="container-fluid">
-      <h1>{'/r/' + this.props.subId}</h1>
-      <div className="row">
-        <Submissions className="col-md-9" items={submissions}  />
-        <SubSidebar className="col-md-3" about={aboutData} />
-      </div>
-    </div>;
+    return <html>
+      <head>
+        <title>{this.props.pageTitle}</title>
+        <link rel="stylesheet" href={this.props.styles} />
+      </head>
+      <body>
+        <div className="container-fluid">
+          <h1>{'/r/' + this.props.subId}</h1>
+          <div className="row">
+            <Submissions className="col-md-9" items={submissions}  />
+            <SubSidebar className="col-md-3" about={aboutData} />
+          </div>
+        </div>
+      </body>
+    </html>;
   }
 });
 
