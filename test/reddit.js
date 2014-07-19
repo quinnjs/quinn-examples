@@ -13,6 +13,10 @@ describe('reddit', function() {
         .then(_.property('body'));
     });
 
+    it('starts with the HTML5 doctype', function() {
+      return assert.match(/^<!DOCTYPE html>/, this.parsedBody);
+    });
+
     it('has funky html stuff', function() {
       return assert.include('<html', this.parsedBody);
     });
