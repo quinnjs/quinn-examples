@@ -19,18 +19,16 @@
   "homepage": "https://github.com/quinnjs/quinn-examples",
   "dependencies": {
     "bluebird": "^2.1.3",
-    "envify": "^1.2.1",
     "lodash": "^2.4.1",
     "node-jsx": "^0.10.0",
     "quinn": "^2.1.0",
     "quinn-render": "^1.0.0",
     "quinn-respond": "^1.0.1",
     "quinn-router": "^1.0.1",
-    "react": "^0.10.0"
+    "react": "^0.11.0"
   },
   "devDependencies": {
     "assertive-as-promised": "^0.1.0",
-    "bugger-v8-client": "git+https://github.com/buggerjs/bugger-v8-client",
     "mocha": "^1.20.1",
     "watch": "^0.10.0"
   }

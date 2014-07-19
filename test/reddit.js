@@ -6,7 +6,7 @@ var assert = require('assertive-as-promised');
 
 var quickRequest = require('./quick-req');
 
-describe('reddit', function() {
+xdescribe('reddit', function() {
   describe('/r/javascript', function() {
     before(function() {
       return this.parsedBody = quickRequest('/r/javascript')
