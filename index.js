@@ -22,7 +22,8 @@ httSpy.on('response', function(req, res) {
 
 var mods = initMods({
   'basic-auth': require('./mods/basic-auth'),
-  'reddit': require('./mods/reddit')
+  'reddit': require('./mods/reddit'),
+  'util': require('./mods/util')
 });
 
 module.exports = route(mods.routes);
