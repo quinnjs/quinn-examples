@@ -8,9 +8,9 @@ require('node-jsx').install({
 var route = require('quinn-router').route;
 
 var initMods = require('./lib/mods');
-var HTTSpy = require('./lib/httspy');
+var httSpy = require('./lib/httspy');
 
-var httSpy = new HTTSpy().start();
+httSpy.start();
 
 httSpy.on('request', function(req, res) {
   console.log('[REQ] %s %s', req.method, req.url);
