@@ -21,9 +21,9 @@
     "bluebird": "^2.1.3",
     "lodash": "^2.4.1",
     "node-jsx": "^0.10.0",
-    "quinn": "^2.1.0",
+    "quinn": "^2.2.0",
     "quinn-render": "^1.0.0",
-    "quinn-respond": "^1.0.1",
+    "quinn-respond": "^2.0.0",
     "quinn-router": "^1.0.1",
     "react": "^0.11.0",
     "resolve-deep": "^1.0.1"

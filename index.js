@@ -22,6 +22,7 @@ httSpy.on('response', function(req, res) {
 
 var mods = initMods({
   'basic-auth': require('./mods/basic-auth'),
+  'file': require('./mods/file'),
   'reddit': require('./mods/reddit'),
   'util': require('./mods/util')
 });
